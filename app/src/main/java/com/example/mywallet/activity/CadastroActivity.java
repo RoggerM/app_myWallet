@@ -45,27 +45,27 @@ public class CadastroActivity extends AppCompatActivity {
                 String textoEmail = campoEmail.getText().toString();
                 String textoSenha = campoSenha.getText().toString();
 
-                if (!textoNome.isEmpty()){
-                    if (!textoEmail.isEmpty()){
-                        if (!textoSenha.isEmpty()){
+                if (!textoNome.isEmpty()) {
+                    if (!textoEmail.isEmpty()) {
+                        if (!textoSenha.isEmpty()) {
 
-                                usuario = new Usuario();
-                                usuario.setNome(textoNome);
-                                usuario.setEmail(textoEmail);
-                                usuario.setSenha(textoSenha);
-                                cadastrarUsuario();
+                            usuario = new Usuario();
+                            usuario.setNome(textoNome);
+                            usuario.setEmail(textoEmail);
+                            usuario.setSenha(textoSenha);
+                            cadastrarUsuario();
 
-                        }else {
+                        } else {
                             Toast.makeText(CadastroActivity.this, "Preencha a senha",
                                     Toast.LENGTH_SHORT).show();
                         }
 
-                    }else {
+                    } else {
                         Toast.makeText(CadastroActivity.this, "Preencha o email",
                                 Toast.LENGTH_SHORT).show();
                     }
 
-                }else {
+                } else {
                     Toast.makeText(CadastroActivity.this, "Preencha o nome",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -73,41 +73,41 @@ public class CadastroActivity extends AppCompatActivity {
         });
     }
 
-    public  void cadastrarUsuario(){
+    public void cadastrarUsuario() {
 
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(
-            usuario.getEmail(),usuario.getSenha()
+                usuario.getEmail(), usuario.getSenha()
         ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
+                if (task.isSuccessful()) {
 
-                        finish();
+                    finish();
 
-                    }else{
+                } else {
 
-                        String excecao = "";
-                        try {
-                            throw task.getException();
-                        }catch (FirebaseAuthWeakPasswordException e){
-                            excecao = "Digite uma senha mais forte";
-                        }catch (FirebaseAuthInvalidCredentialsException e){
-                            excecao = "Digite um email válido";
-                        }catch (FirebaseAuthUserCollisionException e){
-                            excecao = "Usuário já cadastrado";
-                        }catch (Exception e){
-                            excecao = "Erro ao cadastrar usuário" + e.getMessage();
-                            e.printStackTrace();
-                        }
-
-                        Toast.makeText(CadastroActivity.this, excecao, Toast.LENGTH_SHORT).show();
-
-                        Toast.makeText(CadastroActivity.this, "Erro ao cadastrar usuario", Toast.LENGTH_SHORT).show();
+                    String excecao = "";
+                    try {
+                        throw task.getException();
+                    } catch (FirebaseAuthWeakPasswordException e) {
+                        excecao = "Digite uma senha mais forte";
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                        excecao = "Digite um email válido";
+                    } catch (FirebaseAuthUserCollisionException e) {
+                        excecao = "Usuário já cadastrado";
+                    } catch (Exception e) {
+                        excecao = "Erro ao cadastrar usuário" + e.getMessage();
+                        e.printStackTrace();
                     }
-                }
-            });
-        }
 
+                    Toast.makeText(CadastroActivity.this, excecao, Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(CadastroActivity.this, "Erro ao cadastrar usuario", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
+
+}
 

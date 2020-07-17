@@ -46,20 +46,20 @@ public class LoginActivity extends AppCompatActivity {
                 String textoSenha = campoSenha.getText().toString();
 
 
-                if (!textoEmail.isEmpty()){
-                    if (!textoSenha.isEmpty()){
+                if (!textoEmail.isEmpty()) {
+                    if (!textoSenha.isEmpty()) {
 
                         usuario = new Usuario();
-                        usuario.setEmail( textoEmail );
-                        usuario.setSenha( textoSenha );
+                        usuario.setEmail(textoEmail);
+                        usuario.setSenha(textoSenha);
                         validarLogin();
 
-                    }else {
+                    } else {
                         Toast.makeText(LoginActivity.this, "Preencha a senha",
                                 Toast.LENGTH_SHORT).show();
                     }
 
-                }else {
+                } else {
                     Toast.makeText(LoginActivity.this, "Preencha o email",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -69,29 +69,29 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void validarLogin(){
+    public void validarLogin() {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.signInWithEmailAndPassword(
-                    usuario.getEmail(),
-                    usuario.getSenha()
+                usuario.getEmail(),
+                usuario.getSenha()
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
 
                     abrirTelaPrincipal();
 
-                }else{
+                } else {
 
                     String excecao = "";
                     try {
                         throw task.getException();
-                    }catch (FirebaseAuthInvalidCredentialsException e){
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
                         excecao = "Usuário não cadastrado";
-                    }catch (FirebaseAuthInvalidUserException e){
+                    } catch (FirebaseAuthInvalidUserException e) {
                         excecao = "Usuário ou senha incorreta";
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         excecao = "Erro ao entrar" + e.getMessage();
                         e.printStackTrace();
                     }
@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void abrirTelaPrincipal(){
+    public void abrirTelaPrincipal() {
         startActivity(new Intent(this, PrincipalActivity.class));
         finish();
     }

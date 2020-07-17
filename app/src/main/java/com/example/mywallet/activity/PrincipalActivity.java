@@ -31,11 +31,11 @@ public class PrincipalActivity extends AppCompatActivity {
         });*/
     }
 
-    public void adicionarDespesa(View view){
+    public void adicionarDespesa(View view) {
 
     }
 
-    public void adicionarReceita(View view){
+    public void adicionarReceita(View view) {
 
     }
 

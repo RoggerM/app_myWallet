@@ -56,10 +56,10 @@ public class MainActivity extends IntroActivity {
                 .build());
 
         addSlide(new FragmentSlide.Builder()
-                                .background(android.R.color.white)
-                                .fragment(R.layout.intro_layout)
-                                .canGoForward(false)
-                                .build()
+                .background(android.R.color.white)
+                .fragment(R.layout.intro_layout)
+                .canGoForward(false)
+                .build()
         );
 
 
@@ -72,24 +72,24 @@ public class MainActivity extends IntroActivity {
         verificarUsuarioLogado();
     }
 
-    public void btEntrar(View view){
-       startActivity(new Intent(this, LoginActivity.class));
+    public void btEntrar(View view) {
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
-    public void  btCadastrar(View view){
+    public void btCadastrar(View view) {
         startActivity(new Intent(this, CadastroActivity.class));
     }
 
-    public void verificarUsuarioLogado(){
+    public void verificarUsuarioLogado() {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         //autenticacao.signOut();
-        if (autenticacao.getCurrentUser() != null){
+        if (autenticacao.getCurrentUser() != null) {
             abrirTelaPrincipal();
             finish();
         }
     }
 
-    public void abrirTelaPrincipal(){
+    public void abrirTelaPrincipal() {
         startActivity(new Intent(this, PrincipalActivity.class));
     }
 
