@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">myWallet</string>
+    <string name="title_activity_principalctivity">Principalctivity</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+</resources>

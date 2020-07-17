@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1003454786398",
+    "firebase_url": "https://mywallet-7429b.firebaseio.com",
+    "project_id": "mywallet-7429b",
+    "storage_bucket": "mywallet-7429b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003454786398:android:61df80ee5d24a80ebe7dcf",
+        "android_client_info": {
+          "package_name": "com.example.mywallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003454786398-op7uialn9vcdsfb7vppvq9609jrrpp05.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mywallet",
+            "certificate_hash": "8ce6780551d6feb764d2d10485ccba70b707ec0c"
+          }
+        },
+        {
+          "client_id": "1003454786398-br1di40a4mp9tc9a581qqde789ea5gml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDztT_wFymu41QF-Vv8Max87P9BvqADw6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003454786398-br1di40a4mp9tc9a581qqde789ea5gml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
