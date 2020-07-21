@@ -5,8 +5,10 @@ import java.text.SimpleDateFormat;
 public class DateUtil {
 
     public static String dataAtual(){
-        long date = System.currentTimeMillis();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d/M/yyyy");
+        long data = System.currentTimeMillis();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String dataString = simpleDateFormat.format(data);
+        return dataString;
     }
 
 }
